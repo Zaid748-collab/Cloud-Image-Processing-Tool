@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Cloud Image Processing Portal</h1>
+
+    <h2>Upload Image</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color: red;">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Select image:</label><br><br>
+        <input type="file" name="image" required><br><br>
+
+        <button type="submit">Upload and Process</button>
+    </form>
+
+    <br>
+    <a href="/">Back to Dashboard</a>
+</body>
+</html>

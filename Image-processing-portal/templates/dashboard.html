@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processing Dashboard</title>
+</head>
+<body>
+    <h1>Image Processing Dashboard</h1>
+
+    <a href="/upload">Upload New Image</a>
+
+    <h2>Processed Images</h2>
+
+    {% for image in images %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin: 10px;">
+            <p><strong>ID:</strong> {{ image["id"] }}</p>
+            <p><strong>Original Filename:</strong> {{ image["original_filename"] }}</p>
+            <p><strong>Processed Filename:</strong> {{ image["processed_filename"] }}</p>
+            <p><strong>Original Size:</strong> {{ image["original_size"] }} bytes</p>
+            <p><strong>Processed Size:</strong> {{ image["processed_size"] }} bytes</p>
+            <p><strong>S3 Path:</strong> {{ image["s3_key"] }}</p>
+            <p><strong>Uploaded At:</strong> {{ image["created_at"] }}</p>
+        </div>
+    {% else %}
+        <p>No images processed yet.</p>
+    {% endfor %}
+</body>
+</html>
